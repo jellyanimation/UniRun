@@ -90,7 +90,8 @@ public class PlayerController : MonoBehaviour
         //사망 상태를 true로 변경
         isDead = true;
 
-
+        //게임 매니저의 게임오버 처리 실행
+        GameManager.instance.OnPlayerDead();
 
     }
 
@@ -99,7 +100,7 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) //(Collider2D collision -데이터 컨테이너)
     {
         //트리거 콜라이더를 가진 장애물과의 충돌을 감지
-        if (other.tag == "Dead" &&!isDead)   //if (collision.tag == "Dead" &&!isDead)
+        if (other.tag == "DEAD" &&!isDead)   //if (collision.tag == "Dead" &&!isDead)
         {
             //충돌한 상대방의 태그가 Dead이며 아직 사망하지 않았다면 Die()실행
             Die();
